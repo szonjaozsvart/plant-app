@@ -4,32 +4,24 @@ import Typography from "@mui/material/Typography";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import { Link } from "react-router-dom";
-import FbLogo from "../assets/facebook.png";
-import InstaLogo from "../assets/instagram.png";
-import LinkedInLogo from "../assets/linkedin.png";
 import "../assets/about.css";
 import CopyrightIcon from '@mui/icons-material/Copyright';
-import ListItemText from '@mui/material/ListItemText';
-import Container from '@mui/material/Container';
+import ReactPlayer from 'react-player';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 function About() {
   return (
     <Grid padding={2}>
-      <Grid color="#11455c" fontWeight="bold" fontSize={30} >
-        Follow us on:
+      <Grid display="flex" alignItems="center" justifyContent="center">
+        <Typography color="#11455c" fontWeight="bold" fontSize={30} letterSpacing={5} padding={2} >Follow us on:</Typography>
+      <ImageList sx={{ maxWidth: 200, maxHeight: 200 }} cols={3}>
+        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FacebookIcon sx={{height:50, width:50}}/></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><InstagramIcon sx={{height:50, width:50}}/></a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><LinkedInIcon sx={{height:50, width:50}}/></a>
+      </ImageList>
       </Grid>
-      <ImageList display="flex" sx={{ maxWidth: 130, maxHeight: 130 }} cols={3}>
-        <Link to="https://www.facebook.com/">
-          <ImageListItem > <img src={FbLogo} alt="" id="fb" style={{borderRadius:10}}/></ImageListItem>
-          </Link>
-          <Link to="https://www.instagram.com/">
-          <ImageListItem> <img src={InstaLogo} alt="" id="insta" style={{borderRadius:10}}/></ImageListItem>
-          </Link>
-          <Link to="https://www.linkedin.com/">
-          <ImageListItem> <img src={LinkedInLogo} alt="" id="linkedin" style={{borderRadius:10}}/></ImageListItem>
-          </Link>
-        </ImageList>
       <Typography
         color="#0095a0"
         fontWeight="bold"
@@ -84,28 +76,26 @@ function About() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of
           the printing and typesetting industry.
-          <Grid 
-        display="flex" 
-        flexDirection="column" 
-        maxWidth={200}
-        backgroundColor="#00677c"
-        color="white">
-          <ListItemText>1. Lorem Ipsum</ListItemText>
-          <ListItemText>2. Lorem Ipsum</ListItemText>
-          <ListItemText>3. Lorem Ipsum</ListItemText>
-          <ListItemText>4. Lorem Ipsum</ListItemText>
-          <ListItemText>5. Lorem Ipsum</ListItemText>
-          </Grid>
+          <br/>
+          1. Lorem Ipsum
+          <br/>
+          2. Lorem Ipsum
+          <br/>
+          3. Lorem Ipsum
+          <br/>
+          4. Lorem Ipsum
+          <br/>
+          5. Lorem Ipsum
         </Typography>
         <Typography
         color="#0095a0"
         fontWeight="bold"
         fontSize={30}
-      >Our Team</Typography>
-      <Container display="flex" alignItems="center" justifyContent="center">
-      <ImageList>
+      >Our Team</Typography >
+      <Grid sx={{ display:"flex", alignItems:"center", justifyContent:"center" }} >
+      <ImageList variant="masonry" cols={3} gap={6}>
       {itemData.map((item) => (
-        <ImageListItem key={item.img} sx={{ maxWidth: 450, maxHeight: 450 }} >
+        <ImageListItem key={item.img} >
           <img
             src={item.img}
             alt={item.title}
@@ -117,12 +107,20 @@ function About() {
         </ImageListItem>
       ))}
     </ImageList>
-      </Container>
+      </Grid>
         <Typography
         color="#0095a0"
         fontWeight="bold"
         fontSize={30}
       >Team videos</Typography>
+      <Grid display="flex" flexDirection="row" margin={2}>
+        <ReactPlayer url="https://www.youtube.com/watch?v=JkK8g6FMEXE&list=RDNeSpx7vZifc&index=2">
+        </ReactPlayer>
+        <ReactPlayer url="https://www.youtube.com/watch?v=MYUmZMfVLE4">
+        </ReactPlayer>
+        <ReactPlayer url="https://www.youtube.com/watch?v=hlSIGK7S8Is">
+        </ReactPlayer>
+      </Grid>
         <Typography 
         display="flex" 
         alignItems="center" 
@@ -166,6 +164,7 @@ const itemData = [
     img: 'https://galeria.cdn.index.hu/belfold/2020/03/11/zulu_a_kis_allatkerti_szurikata/31993727_f9633b899657f403c507940d92406456_j.jpg',
     title: 'Honey the Meerkat',
     author: '@beer.cat',
+    row: 3
   },
   {
     img: 'https://www.ekolss.com/img/animals/91/koala.jpg',
@@ -186,11 +185,13 @@ const itemData = [
     img: 'https://zoobudapest.com/uploads/articles/84/image/Lisimba.JPG',
     title: 'Ron the Rhino',
     author: '@rhon.iro',
+    row: 3
   },
   {
     img: 'https://d.newsweek.com/en/full/1913282/crab.jpg',
     title: 'Carol the Crab',
     author: '@crab.roll',
+    row:3
   },
   {
     img: 'https://images.squarespace-cdn.com/content/v1/5ad58baecef372033a94eaac/1613259241548-9LKVFNYAI6GM92F6729F/TRT_Chicks_1.jpg',
@@ -198,5 +199,6 @@ const itemData = [
     author: '@chirs.chick',
   },
 ];
+
 
 export default About;
