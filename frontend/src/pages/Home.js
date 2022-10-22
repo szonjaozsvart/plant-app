@@ -4,12 +4,18 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import CopyrightIcon from "@mui/icons-material/Copyright";
 
 function Home() {
   return (
     <Grid align="center" justifyContent="center" padding={5}>
       <Grid>
-        <Grid color="white" backgroundColor="#11455c" borderRadius={10} maxWidth={1200} >
+        <Grid
+          color="white"
+          backgroundColor="#11455c"
+          borderRadius={10}
+          maxWidth={1200}
+        >
           <Typography variant="h1" component="h1">
             BE YOUR PLANT!?
           </Typography>
@@ -18,10 +24,18 @@ function Home() {
           </Typography>
         </Grid>
         <ImageList sx={{ maxWidth: 250, maxHeight: 300 }} cols={4}>
-          <ImageListItem><img src={Logo} alt="" /></ImageListItem>
-          <ImageListItem><img src={Logo} alt="" /></ImageListItem>
-          <ImageListItem><img src={Logo} alt="" /></ImageListItem>
-          <ImageListItem><img src={Logo} alt="" /></ImageListItem>
+          <ImageListItem>
+            <img src={Logo} alt="" />
+          </ImageListItem>
+          <ImageListItem>
+            <img src={Logo} alt="" />
+          </ImageListItem>
+          <ImageListItem>
+            <img src={Logo} alt="" />
+          </ImageListItem>
+          <ImageListItem>
+            <img src={Logo} alt="" />
+          </ImageListItem>
         </ImageList>
         <Typography
           padding={5}
@@ -51,6 +65,17 @@ function Home() {
           Ipsum.
         </Typography>
       </Grid>
+      <Typography
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize={15}
+      >
+        <CopyrightIcon
+          sx={{ maxWidth: 20, maxHeight: 14, fontWeight: "bold" }}
+        />
+        2022 BYP
+      </Typography>
     </Grid>
   );
 }

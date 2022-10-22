@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import About from "./pages/About";
 import Registration from './pages/Registration';
 import NavBar from "./components/NavBar";
-import "./App.css";
+
 function App() {
 
   return (
